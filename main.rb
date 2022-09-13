@@ -1,10 +1,20 @@
 def main 
-   options
-   choice = gets.chomp.to_i
-   user_input(choice)
+  console
+end
+
+def console
+    until options
+      choice = gets.chomp.to_i
+      if choice == 11
+        puts "Thank You for using my Catalog of Things!!"
+        break
+      end
+      user_input(choice)
+    end
 end
 
 def options
+    puts
     puts 'List of things'
     puts '--------------------'
     puts '0 Save and Exit'
@@ -47,7 +57,7 @@ def user_input(choice)
     when 10
         puts 'game added suuessfully'
     else 
-        puts 'Invalid choice'
+        puts 'Invalid choice, Kindly choice between 1 and 10!!'
     end
 end
 main
