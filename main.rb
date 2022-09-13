@@ -1,8 +1,6 @@
 require_relative './classes/game_author_utility'
-require_relative './classes/game'
-require_relative './classes/author'
-
 def main
+  @games = []
   console
 end
 
@@ -37,8 +35,7 @@ def options
   puts 'Enter your choice'
 end
 
-def user_input(choice)
-  include GameAuthorUtility
+def user_input(choice, games)
   case choice
   when 0
     puts 'Your progress is saved'
@@ -61,7 +58,7 @@ def user_input(choice)
   when 9
     puts 'music album added successfully'
   when 10
-    add_game(game)
+    add_game(10, games)
   else
     puts 'Invalid choice, Kindly choice between 1 and 10!!'
   end
