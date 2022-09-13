@@ -9,7 +9,6 @@ describe Game do
   end
 end
 
-
 describe Game do
   let(:game) { Game.new(true, 2019, 2017) }
   describe '#can_be_archived?' do
