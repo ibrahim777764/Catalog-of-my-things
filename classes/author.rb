@@ -10,9 +10,12 @@ class Author <  Items
         @last_name = last_name
         @items = []
     end
-    
+
     def add_item(item)
         @items.push(item)
         item.author = self
     end
 end
+
+# authorr = Author.new('John', 'Doe')
+# puts authorr.add_item('foo')
