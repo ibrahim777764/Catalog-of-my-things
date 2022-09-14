@@ -1,12 +1,12 @@
-require_relative '../items'
+require_relative 'item'
 
 class Book < Item
   attr_accessor :publisher, :cover_state, :label_name
   attr_reader :id, :publish_date, :archived
 
   # rubocop:disable Metrics/ParameterLists
-  def initialize(publisher, cover_state, publish_date, archived, label, id)
-    super(publish_date, archived, id)
+  def initialize(id, publisher, cover_state, publish_date, archived, label)
+    super(id, publish_date, archived)
     @publisher = publisher
     @cover_state = cover_state
     @label_name = label
