@@ -1,3 +1,4 @@
+require_relative './music/music_util'
 def main
   console
 end
@@ -34,17 +35,18 @@ def options
 end
 
 def user_input(choice)
+  app = App.new
   case choice
   when 0
     puts 'Your progress is saved'
   when 1
     puts 'book list displayed'
   when 2
-    puts 'music album display'
+    app.list_music_album
   when 3
-    puts 'game display'
+    puts 'all level display'
   when 4
-    puts 'display genre'
+    app.list_genres
   when 5
     puts 'all level display'
   when 6
@@ -52,9 +54,9 @@ def user_input(choice)
   when 7
     puts 'display all sources'
   when 8
-    puts 'book added successfully'
+    puts 'add a book'
   when 9
-    puts 'music album added successfully'
+    app.add_music_album
   when 10
     puts 'game added suuessfully'
   else
