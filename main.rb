@@ -1,21 +1,20 @@
 require_relative './classes/game_author_utility'
-require_relative './classes/game'
-require_relative './classes/author'
+
 def main
-  console
+  games = []
+  user_input(games)
 end
 
-def console
-  @games = []
-  until options
-    choice = gets.chomp.to_i
-    if choice == 11
-      puts 'Thank You for using my Catalog of Things!!'
-      break
-    end
-    user_input(choice)
-  end
-end
+# def console
+#   until options
+#     choice = gets.chomp.to_i
+#     if choice == 11
+#       puts 'Thank You for using my Catalog of Things!!'
+#       break
+#     end
+#     user_input(choice)
+#   end
+# end
 
 def options
   puts
@@ -37,33 +36,40 @@ def options
   puts 'Enter your choice'
 end
 
-def user_input(choice)
-  include GameAuthorUtility
-  case choice
-  when 0
-    puts 'Your progress is saved'
-  when 1
-    puts 'book list displayed'
-  when 2
-    puts 'music album display'
-  when 3
-    list_all_games
-  when 4
-    puts 'display genre'
-  when 5
-    puts 'all level display'
-  when 6
-    puts 'display all author'
-  when 7
-    puts 'display all sources'
-  when 8
-    puts 'book added successfully'
-  when 9
-    puts 'music album added successfully'
-  when 10
-    add_game
-  else
-    puts 'Invalid choice, Kindly choice between 1 and 10!'
+def user_input(games)
+  loop do
+    options
+    choice = gets.chomp.to_i
+    if choice == 11
+      puts 'Thank You for using my Catalog of Things!!'
+      break
+      end
+    case choice
+    when 0
+      puts 'Your progress is saved'
+    when 1
+      puts 'book list displayed'
+    when 2
+      puts 'music album display'
+    when 3
+      list_all_games(games)
+    when 4
+      puts 'display genre'
+    when 5
+      puts 'all level display'
+    when 6
+      list_all_authors(games)
+    when 7
+      puts 'display all sources'
+    when 8
+      puts 'book added successfully'
+    when 9
+      puts 'music album added successfully'
+    when 10
+      add_game(games)
+    else
+      puts 'Invalid choice, Kindly choice between 1 and 10!'
+    end
   end
 end
 main
