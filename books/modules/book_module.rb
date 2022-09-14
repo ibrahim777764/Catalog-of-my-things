@@ -1,5 +1,5 @@
 require_relative '../book'
-require_relative '../item'
+require_relative '../items'
 
 module BookModule
   def list_books
