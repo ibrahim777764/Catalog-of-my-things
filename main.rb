@@ -43,7 +43,7 @@ def user_input(games)
     if choice == 11
       puts 'Thank You for using my Catalog of Things!!'
       break
-      end
+    end
     case choice
     when 0
       puts 'Your progress is saved'
