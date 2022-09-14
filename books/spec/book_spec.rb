@@ -3,9 +3,9 @@ require_relative '../book'
 describe Book do
   before :each do
     @label = Label.new('new', 'red')
-    @book = Book.new(1, 'mustapha', 'bad', '2022-09-05', false, 'Gift')
-    @second_book = Book.new(5, 'mustapha', 'good', '2022-09-05', false, 'Gift')
-    @third_book = Book.new(23, 'mustapha', 'good', '2010-06-05', false, 'Gift')
+    @book = Book.new(1, 'ibrahim', 'bad', '2022-09-05', false, 'Gift')
+    @second_book = Book.new(5, 'ibrahim', 'good', '2022-09-05', false, 'Gift')
+    @third_book = Book.new(23, 'ibrahim', 'good', '2010-06-05', false, 'Gift')
     @book.add_label(@label)
   end
 
