@@ -14,17 +14,22 @@ class Items
   end
 
   def move_to_archive()
-    @archived = true if can_be_archived? == true
+    @archived = true if can_be_archived?
   end
 
   private
 
   def can_be_archived?()
     current_date = Date.today.year
-    final_date = current_date - @publish_date
+    final_date = current_date - @publish_date.year
     final_date > 10
+  end
+
+  def add_genre(genre)
+    @genre = genre.name
+    genre.item << self unless genre.items.include?(self)
   end
 end
 
-b = Items.new(2020)
-puts b.move_to_archive
+# b = Items.new(2020)
+# puts b.move_to_archive
