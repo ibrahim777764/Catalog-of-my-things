@@ -1,4 +1,3 @@
-
 require_relative './music/music_util'
 def main
   user_input(games)
