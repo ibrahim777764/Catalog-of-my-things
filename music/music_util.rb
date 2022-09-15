@@ -5,7 +5,7 @@ class App
   include AlbumsManager
  def initialize
    @music_album =load_albums || []
-   @genres =[]
+   @genres =load_genres || []
  end
  def empty(array)
   array.empty?
@@ -22,6 +22,7 @@ class App
     puts "#{i + 1}) Name: #{album.name} || published on #{album.publish_date} || Is on spotify? = #{album.on_spotify}"
   end
  end
+ # create a music album
  def add_music_album
    print 'Album Name : '
    name = gets.chomp
@@ -36,6 +37,15 @@ class App
    message("Music album added successfully!!")
  end
 
+ # create genre
+ def create_genres
+  puts 'Enter the genre name: '
+  name = gets.chomp
+  @genres << Genres.new(name)
+  save_genre(@genres)
+ end
+
+ # listing genre
  def list_genres
   if empty(@genres)
     message('No genre in the catalog')

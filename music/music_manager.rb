@@ -1,14 +1,32 @@
 require 'json'
 require_relative 'musicAlbum'
 module AlbumsManager
+  # store music album
   def store_albums(albums)
     data =[]
-    file = './albums.json'
-    return unless File.exist?(file)
     albums.each do | album | 
       data << {publish_date: album.publish_date, name: album.name,  on_spotify: album.on_spotify } 
     end
-    File.write(file, JSON.generate(data))
+    File.write('./albums.json', JSON.generate(data))
+  end
+
+  # store genre file
+  def save_genre(genres)
+    save_genres = []
+    genres.each do |genre|
+      save_genres << { name: genre.name }
+    end
+
+    File.write('./genres.json', JSON.generate(save_genres))
+  end
+
+  # load from json file
+  def load_genres
+    data = []
+    file = './genres.json'
+    return data unless File.exist?(file) && File.read(file) != ''
+    JSON.parse(File.read(file)).each { |genre| data << Genres.new( genre['name']) }
+    data
   end
 
   def load_albums
