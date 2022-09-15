@@ -25,9 +25,4 @@ describe Author do
     author.add_item(item)
     expect(author.items).to include(item)
   end
-
-
 end
-
-
-
