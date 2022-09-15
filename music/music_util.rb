@@ -32,17 +32,12 @@ class App
    spotify = gets.chomp
    spotify = spotify == 'y'
    my_album = Musics.new(name,publish_date,spotify)
+   my_genre = Genres.new(name)
+   @genres.push(my_genre)
    @music_album.push(my_album)
    store_albums(@music_album)
+   save_genre(@genres)
    message("Music album added successfully!!")
- end
-
- # create genre
- def create_genres
-  puts 'Enter the genre name: '
-  name = gets.chomp
-  @genres << Genres.new(name)
-  save_genre(@genres)
  end
 
  # listing genre

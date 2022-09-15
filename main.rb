@@ -29,7 +29,6 @@ def options
   puts '8 Add a book'
   puts '9 Add a music album'
   puts '10 Add a game'
-  puts '12 Add a genre'
   puts '11 Exit'
   puts '---------------------'
   puts 'Enter your choice'
@@ -60,8 +59,6 @@ def user_input(choice)
     app.add_music_album
   when 10
     puts 'game added suuessfully'
-  when 12
-    app.create_genres
   else
     puts 'Invalid choice, Kindly choice between 1 and 10!!'
   end
