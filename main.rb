@@ -1,7 +1,6 @@
-require_relative './classes/game_author_utility'
+require_relative './classes/game_app'
 
 def main
-  games = []
   user_input(games)
 end
 
@@ -52,7 +51,7 @@ def user_input(games)
     when 2
       puts 'music album display'
     when 3
-      list_all_games(games)
+      list_all_games
     when 4
       puts 'display genre'
     when 5
@@ -66,7 +65,7 @@ def user_input(games)
     when 9
       puts 'music album added successfully'
     when 10
-      add_game(games)
+      add_game
     else
       puts 'Invalid choice, Kindly choice between 1 and 10!'
     end
