@@ -1,4 +1,4 @@
-# require_relative './music/music_util'
+require_relative './music/music_util'
 require_relative './classes/game_app'
 require_relative './classes/factory'
 require_relative './books/app'
