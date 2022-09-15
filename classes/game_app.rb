@@ -29,7 +29,7 @@ class GameApp
     p 'Game added successfully'
     puts
   end
-  
+
   def list_all_games
     p 'No games added yet' if @games.length.zero?
     @games.each do |game|
@@ -39,9 +39,9 @@ class GameApp
       puts '====================================='
     end
   end
-  
+
   def list_all_authors
-   p 'No games added yet' if @authors.length.zero?
+    p 'No games added yet' if @authors.length.zero?
     @authors.each_with_index do |author, index|
       puts "#{index + 1}. #{author.first_name} #{author.last_name}"
     end
