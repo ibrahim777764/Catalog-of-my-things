@@ -1,5 +1,7 @@
-#require_relative './music/music_util'
+
 require_relative './books/app'
+require_relative './music/music_util'
+
 def main
   console
 end
@@ -18,7 +20,7 @@ end
 def options
   puts
   puts 'List of things'
-  puts '--------------------'
+  puts '========================'
   puts '0 Save and Exit'
   puts '1 List all books'
   puts '2 List all music albums'
@@ -31,12 +33,13 @@ def options
   puts '9 Add a music album'
   puts '10 Add a game'
   puts '11 Exit'
-  puts '---------------------'
+  puts '========================'
   puts 'Enter your choice'
 end
 
 def user_input(choice)
   apps = Apps.new
+  app = App.new
   case choice
   when 0
     puts 'Your progress is saved'
