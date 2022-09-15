@@ -1,19 +1,24 @@
-require_relative './music/music_util'
+# require_relative './music/music_util'
+require_relative './classes/game_app'
+require_relative './classes/factory'
 
 def main
-  user_input(games)
+  console
 end
 
-# def console
-#   until options
-#     choice = gets.chomp.to_i
-#     if choice == 11
-#       puts 'Thank You for using my Catalog of Things!!'
-#       break
-#     end
-#     user_input(choice)
-#   end
-# end
+def console
+  factory = Factory.new
+  until options
+    choice = gets.chomp.to_i
+    if choice == 11
+      factory.on_exit
+      puts 'Thank You for using my Catalog of Things!!'
+      break
+    end
+    user_input(choice)
+
+  end
+end
 
 def options
   puts
@@ -36,7 +41,8 @@ def options
 end
 
 def user_input(choice)
-  app = App.new
+  # app = App.new
+  my_game = GameApp.new
   case choice
   when 0
     puts 'Your progress is saved'
@@ -45,13 +51,13 @@ def user_input(choice)
   when 2
     app.list_music_album
   when 3
-    puts 'List all games'
+    my_game.list_all_games
   when 4
     app.list_genres
   when 5
     puts 'all level display'
   when 6
-    puts 'display all author'
+    my_game.list_all_authors
   when 7
     puts 'display all sources'
   when 8
@@ -59,7 +65,7 @@ def user_input(choice)
   when 9
     app.add_music_album
   when 10
-    puts 'game added suuessfully'
+    my_game.add_game
   else
     puts 'Invalid choice, Kindly choice between 1 and 10!!'
   end
