@@ -1,4 +1,5 @@
 require_relative './music/music_util'
+
 def main
   console
 end
