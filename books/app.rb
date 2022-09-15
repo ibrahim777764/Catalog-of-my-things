@@ -1,7 +1,7 @@
 require 'io/console'
 require_relative 'book'
 require_relative 'label'
-require_relative 'items'
+require_relative 'item'
 
 require_relative './persist_files/persist_books'
 require_relative './persist_files/persist_labels'
