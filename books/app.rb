@@ -9,16 +9,18 @@ require_relative './persist_files/persist_labels'
 require_relative './modules/label_module'
 require_relative './modules/book_module'
 
-class App
+class Apps
   def initialize
     @books = load_books
     @labels = load_labels
+    @book_module = BookModule.new
+    @labels_module = LabelModule.new
   end
 
   include BooksPersistence
   include LabelsPersistence
-  include BookModule
-  include LabelModule
+  #include BookModule
+  #include LabelModule
 
   def menu
     puts
@@ -34,15 +36,24 @@ class App
     puts '------------------------------------------------------------------------------'
   end
 
-  def check(options)
-    case options
-    when 1
-      list_books
-    when 2
-      list_labels
-    when 3
-      add_book
-    end
+  # def check(options)
+  #   case options
+  #   when 1
+   #    @book_module.list_books
+  #   when 2
+  #     list_labels
+  #   when 3
+  #     @book_module.add_book
+  #   end
+  # end
+  def list_books
+    @book_module.list_books
+  end
+  def list_labels
+    @labels_module.list_labels
+  end
+  def add_book
+    @book_module.add_book
   end
 
   def execute

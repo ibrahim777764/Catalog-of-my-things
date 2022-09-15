@@ -1,7 +1,15 @@
 require_relative '../book'
 require_relative '../item'
-
-module BookModule
+require_relative '../label'
+require_relative '../persist_files/persist_books'
+require_relative '../persist_files/persist_labels'
+class BookModule
+  include BooksPersistence 
+  include LabelsPersistence
+  def initialize
+    @books = load_books || []
+    @labels = []
+  end
   def list_books
     if @books.empty?
       puts 'There is no books to display'
@@ -43,8 +51,7 @@ module BookModule
       print 'Please give a color to your label: '
       color = gets.chomp.strip.upcase
       label = Label.new(title, color)
-      @labels << label
-
+      @labels.push(label)
     else
       title = @labels[label_choice - 1].title
 
@@ -52,12 +59,12 @@ module BookModule
 
     book = Book.new(rand(1000), publisher, cover_state, publish_date, false, title)
     book.move_to_archive
-    @books << book
+    @books.push(book)
     unless label.nil?
-
       label.add_item(book)
       book.add_label(label)
-
+      store_books(@books)
+      store_labels(@labels)
     end
     puts 'Book created successfully'
   end

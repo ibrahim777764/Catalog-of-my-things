@@ -2,18 +2,18 @@ require 'json'
 module LabelsPersistence
   def store_labels(labels)
     data = []
-    file = './JSON_files/labels.json'
-    return unless File.exist?(file)
+    # file = './labels.json'
+    # return unless File.exist?(file)
 
     labels.each do |label|
       data << { title: label.title, color: label.color }
     end
-    File.write(file, JSON.generate(data))
+    File.write('./labels.json', JSON.generate(data))
   end
 
   def load_labels
     data = []
-    file = './JSON_files/labels.json'
+    file = './labels.json'
     return data unless File.exist?(file) && File.read(file) != ''
 
     JSON.parse(File.read(file)).each do |label|

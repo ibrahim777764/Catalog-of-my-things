@@ -1,6 +1,10 @@
 require_relative '../label'
-
-module LabelModule
+require_relative '../persist_files/persist_labels'
+class LabelModule
+  include LabelsPersistence
+  def initialize
+    @labels =load_labels || []
+  end
   def list_labels
     if @labels.empty?
       puts 'There is no labels to display'
@@ -8,7 +12,7 @@ module LabelModule
       puts 'Here is the list of labels'
       puts
       @labels.each_with_index do |label, index|
-        puts "#{index}) \"#{label.title}\""
+        puts "#{index}) \"Title #{label.title}\"Color #{label.color}\""
       end
     end
   end

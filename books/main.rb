@@ -1,8 +1,8 @@
-require_relative 'app'
+# require_relative 'app'
 
-def main
-  app = App.new
-  app.execute
-end
+# def main
+#   app = App.new
+#   app.execute
+# end
 
-main
+# main
