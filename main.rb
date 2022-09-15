@@ -1,19 +1,20 @@
+require_relative './books/app'
 require_relative './music/music_util'
 
 def main
-  user_input(games)
+  console
 end
 
-# def console
-#   until options
-#     choice = gets.chomp.to_i
-#     if choice == 11
-#       puts 'Thank You for using my Catalog of Things!!'
-#       break
-#     end
-#     user_input(choice)
-#   end
-# end
+def console
+  until options
+    choice = gets.chomp.to_i
+    if choice == 11
+      puts 'Thank You for using my Catalog of Things!!'
+      break
+    end
+    user_input(choice)
+  end
+end
 
 def options
   puts
@@ -24,7 +25,7 @@ def options
   puts '2 List all music albums'
   puts '3 List all games'
   puts '4 List all genres'
-  puts '5 List all Levels'
+  puts '5 List all Labels'
   puts '6 List all authors'
   puts '7 List all sources'
   puts '8 Add a book'
@@ -36,26 +37,27 @@ def options
 end
 
 def user_input(choice)
+  apps = Apps.new
   app = App.new
   case choice
   when 0
     puts 'Your progress is saved'
   when 1
-    puts 'book list displayed'
+    apps.list_books
   when 2
     app.list_music_album
   when 3
-    puts 'List all games'
+    puts 'list all games'
   when 4
     app.list_genres
   when 5
-    puts 'all level display'
+    apps.list_labels
   when 6
     puts 'display all author'
   when 7
     puts 'display all sources'
   when 8
-    puts 'add a book'
+    apps.add_book
   when 9
     app.add_music_album
   when 10
