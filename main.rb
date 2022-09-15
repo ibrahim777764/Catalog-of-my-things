@@ -45,7 +45,7 @@ def user_input(choice)
   when 2
     app.list_music_album
   when 3
-    puts 'all level display'
+    puts 'List all games'
   when 4
     app.list_genres
   when 5
