@@ -1,6 +1,8 @@
 # require_relative './music/music_util'
 require_relative './classes/game_app'
 require_relative './classes/factory'
+require_relative './books/app'
+
 
 def main
   console
@@ -16,7 +18,6 @@ def console
       break
     end
     user_input(choice)
-
   end
 end
 
@@ -29,7 +30,7 @@ def options
   puts '2 List all music albums'
   puts '3 List all games'
   puts '4 List all genres'
-  puts '5 List all Levels'
+  puts '5 List all Labels'
   puts '6 List all authors'
   puts '7 List all sources'
   puts '8 Add a book'
@@ -41,13 +42,14 @@ def options
 end
 
 def user_input(choice)
-  # app = App.new
+  apps = Apps.new
+  app = App.new
   my_game = GameApp.new
   case choice
   when 0
     puts 'Your progress is saved'
   when 1
-    puts 'book list displayed'
+    apps.list_books
   when 2
     app.list_music_album
   when 3
@@ -55,13 +57,13 @@ def user_input(choice)
   when 4
     app.list_genres
   when 5
-    puts 'all level display'
+    apps.list_labels
   when 6
     my_game.list_all_authors
   when 7
     puts 'display all sources'
   when 8
-    puts 'add a book'
+    apps.add_book
   when 9
     app.add_music_album
   when 10
