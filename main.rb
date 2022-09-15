@@ -1,5 +1,5 @@
-require_relative './classes/game_app'
 
+require_relative './music/music_util'
 def main
   user_input(games)
 end
@@ -35,40 +35,33 @@ def options
   puts 'Enter your choice'
 end
 
-def user_input(games)
-  loop do
-    options
-    choice = gets.chomp.to_i
-    if choice == 11
-      puts 'Thank You for using my Catalog of Things!!'
-      break
-    end
-    case choice
-    when 0
-      puts 'Your progress is saved'
-    when 1
-      puts 'book list displayed'
-    when 2
-      puts 'music album display'
-    when 3
-      list_all_games
-    when 4
-      puts 'display genre'
-    when 5
-      puts 'all level display'
-    when 6
-      list_all_authors(games)
-    when 7
-      puts 'display all sources'
-    when 8
-      puts 'book added successfully'
-    when 9
-      puts 'music album added successfully'
-    when 10
-      add_game
-    else
-      puts 'Invalid choice, Kindly choice between 1 and 10!'
-    end
+def user_input(choice)
+  app = App.new
+  case choice
+  when 0
+    puts 'Your progress is saved'
+  when 1
+    puts 'book list displayed'
+  when 2
+    app.list_music_album
+  when 3
+    puts 'all level display'
+  when 4
+    app.list_genres
+  when 5
+    puts 'all level display'
+  when 6
+    puts 'display all author'
+  when 7
+    puts 'display all sources'
+  when 8
+    puts 'add a book'
+  when 9
+    app.add_music_album
+  when 10
+    puts 'game added suuessfully'
+  else
+    puts 'Invalid choice, Kindly choice between 1 and 10!!'
   end
 end
 main
