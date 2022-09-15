@@ -24,8 +24,6 @@ Metrics/BlockLength:
 
 Style/Documentation:
   Enabled: false
-Lint/DuplicateBranch:
-  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Style/EachForSimpleLoop:
