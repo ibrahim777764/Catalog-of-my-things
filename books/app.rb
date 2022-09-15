@@ -1,7 +1,7 @@
 require 'io/console'
 require_relative 'book'
 require_relative 'label'
-require_relative 'item'
+require_relative 'items'
 
 require_relative './persist_files/persist_books'
 require_relative './persist_files/persist_labels'
@@ -19,8 +19,8 @@ class Apps
 
   include BooksPersistence
   include LabelsPersistence
-  #include BookModule
-  #include LabelModule
+  # include BookModule
+  # include LabelModule
 
   def menu
     puts
@@ -39,7 +39,7 @@ class Apps
   # def check(options)
   #   case options
   #   when 1
-   #    @book_module.list_books
+  #    @book_module.list_books
   #   when 2
   #     list_labels
   #   when 3
@@ -49,9 +49,11 @@ class Apps
   def list_books
     @book_module.list_books
   end
+
   def list_labels
     @labels_module.list_labels
   end
+
   def add_book
     @book_module.add_book
   end

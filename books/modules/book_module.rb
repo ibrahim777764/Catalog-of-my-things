@@ -4,12 +4,13 @@ require_relative '../label'
 require_relative '../persist_files/persist_books'
 require_relative '../persist_files/persist_labels'
 class BookModule
-  include BooksPersistence 
+  include BooksPersistence
   include LabelsPersistence
   def initialize
     @books = load_books || []
     @labels = []
   end
+
   def list_books
     if @books.empty?
       puts 'There is no books to display'
