@@ -14,9 +14,7 @@ class Items
   end
 
   def move_to_archive()
-    if can_be_archived?
-      @archived = true
-    end
+    @archived = true if can_be_archived?
   end
 
   private
@@ -24,8 +22,9 @@ class Items
   def can_be_archived?()
     current_date = Date.today.year
     final_date = current_date - @publish_date.year
-    final_date > 10 ? true : false
+    final_date > 10
   end
+
   def add_genre(genre)
     @genre = genre.name
     genre.item << self unless genre.items.include?(self)
