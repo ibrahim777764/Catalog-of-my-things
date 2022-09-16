@@ -9,6 +9,18 @@ class Factory
     @gameapp.dump_all
   end
 
+  def list_games
+    @gameapp.list_all_games
+  end
+
+  def list_authors
+    @gameapp.list_all_authors
+  end
+
+  def add_game
+    @gameapp.add_game
+  end
+
   def display_list
     puts
     puts 'List of things'
