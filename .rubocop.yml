@@ -48,7 +48,11 @@ Lint/StructNewOverride:
   Enabled: false
 Style/HashEachMethods:
   Enabled: false
+Lint/MissingSuper:
+  Enabled: false
 Style/HashTransformKeys:
+  Enabled: false
+Style/OptionalBooleanParameter:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
