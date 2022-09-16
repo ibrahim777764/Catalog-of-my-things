@@ -69,6 +69,13 @@ npx eslint .
 
 ## Authors
 
+👤 **ibrahim naseer**
+
+I am an aspiring web developer from pakistan.
+- GitHub: [@ibrahimgit](https://github.com/ibrahim777764)
+- Twitter: [Ibrahimtwit](https://twitter.com/Ibrahim66650696)
+- LinkedIn: [@ibrahimlin](https://www.linkedin.com/in/ibrahim-naseer-215667225/)
+
 👤 **Shubh M**
 
 - GitHub: [@Shubh-Dev](https://github.com/Shubh-Dev) 
