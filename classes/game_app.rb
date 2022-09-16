@@ -5,8 +5,8 @@ require_relative './storage'
 class GameApp
   include Storage
   def initialize
-    @games = []
-    @authors = []
+    @games = load_game
+    @authors = load_authors
     load_all
   end
 
@@ -27,6 +27,8 @@ class GameApp
     @authors << author
     @games.push(game)
     p 'Game added successfully'
+    dump_game(@games)
+    dump_authors(@authors)
     puts
   end
 

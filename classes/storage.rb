@@ -1,5 +1,6 @@
 require 'json'
-
+require_relative 'game'
+require_relative 'author'
 module Storage
   def dump_all
     dump_game
@@ -11,38 +12,39 @@ module Storage
     load_authors
   end
 
-  def dump_game
-    @games = [] if @games.nil?
-    games = @games.map { |game| [game.multiplayer, game.last_played_at, game.publish_date] }
+  def dump_game(games)
+    games = games.map do |game|
+      { player: game.multiplayer, last_played: game.last_played_at, published_date: game.publish_date }
+    end
     source = JSON.dump(games)
-    File.write('games.json', source)
+    File.write('./json_files/games.json', source)
   end
 
-  def dump_authors
-    @authors = [] if @authors.nil?
-    authors = @authors.map { |author| [author.first_name, author.last_name] }
+  def dump_authors(authors)
+    authors = authors.map { |author| { fname: author.first_name, lname: author.last_name } }
     source = JSON.dump(authors)
-    File.write('authors.json', source)
+    File.write('./json_files/authors.json', source)
   end
 
   def load_authors
-    return unless File.exist?('authors.json')
+    authors_arr = []
+    return unless File.exist?('./json_files/authors.json')
 
-    authors = JSON.parse(File.read('authors.json'))
+    authors = JSON.parse(File.read('./json_files/authors.json'))
     authors.each do |author|
-      obj = Author.new(author[0], author[1])
-      @authors << obj
+      authors_arr << Author.new(author['fname'], author['lname'])
     end
+    authors_arr
   end
 
   def load_game
-    return unless File.exist?('games.json')
+    games_arr = []
+    return unless File.exist?('./json_files/games.json')
 
-    games = JSON.parse(File.read('games.json'))
+    games = JSON.parse(File.read('./json_files/games.json'))
     games.each do |game|
-      obj = Game.new(game[0], game[1], game[2])
-      # obj.id = game.first
-      @games << obj
+      games_arr << Game.new(game['player'], game['last_played'], game['published_date'])
     end
+    games_arr
   end
 end

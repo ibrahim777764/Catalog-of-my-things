@@ -7,7 +7,7 @@ module AlbumsManager
     albums.each do |album|
       data << { publish_date: album.publish_date, name: album.name, on_spotify: album.on_spotify }
     end
-    File.write('./albums.json', JSON.generate(data))
+    File.write('./json_files/albums.json', JSON.generate(data))
   end
 
   # store genre file
@@ -17,13 +17,13 @@ module AlbumsManager
       save_genres << { name: genre.name }
     end
 
-    File.write('./genres.json', JSON.generate(save_genres))
+    File.write('./json_files/genres.json', JSON.generate(save_genres))
   end
 
   # load from json file
   def load_genres
     data = []
-    file = './genres.json'
+    file = './json_files/genres.json'
     return data unless File.exist?(file) && File.read(file) != ''
 
     JSON.parse(File.read(file)).each { |genre| data << Genres.new(genre['name']) }
@@ -33,7 +33,7 @@ module AlbumsManager
   def load_albums
     # read from file
     data = []
-    file = './albums.json'
+    file = './json_files/albums.json'
     return data unless File.exist?(file) && File.read(file) != ''
 
     JSON.parse(File.read(file)).each do |album|

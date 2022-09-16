@@ -20,9 +20,7 @@ class Items
   private
 
   def can_be_archived?()
-    current_date = Date.today.year
-    final_date = current_date - @publish_date.year
-    final_date > 10
+    (Date.today.year - @publish_date.year) > 10
   end
 
   def add_genre(genre)
@@ -30,6 +28,3 @@ class Items
     genre.item << self unless genre.items.include?(self)
   end
 end
-
-# b = Items.new(2020)
-# puts b.move_to_archive

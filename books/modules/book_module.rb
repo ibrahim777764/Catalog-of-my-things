@@ -1,5 +1,5 @@
 require_relative '../book'
-require_relative '../item'
+require_relative '../items'
 require_relative '../label'
 require_relative '../persist_files/persist_books'
 require_relative '../persist_files/persist_labels'
@@ -38,7 +38,7 @@ class BookModule
       cover_state = 'bad'
     end
     print 'Enter publish date in [yyyy-mm-dd] format: '
-    publish_date = gets.chomp.strip
+    publish_date = gets.chomp
 
     puts 'Choose a label or create your own label: '
     @labels.each_with_index do |label, idx|
