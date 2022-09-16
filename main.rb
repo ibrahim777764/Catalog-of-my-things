@@ -28,7 +28,7 @@ def options
   puts '4 List all genres'
   puts '5 List all Labels'
   puts '6 List all authors'
-  puts '7 List all sources'
+  puts '7 Add Genre'
   puts '8 Add a book'
   puts '9 Add a music album'
   puts '10 Add a game'
@@ -57,7 +57,7 @@ def user_input(choice)
   when 6
     game_app.list_all_authors
   when 7
-    puts 'display all sources'
+    app.add_genre
   when 8
     apps.add_book
   when 9
