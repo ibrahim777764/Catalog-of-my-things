@@ -38,7 +38,7 @@ class App
     message('Music album added successfully!!')
   end
 
-  #Add genre
+  # Add genre
   def add_genre
     print 'Genre Name : '
     name = gets.chomp
